@@ -1,0 +1,44 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Layout from './components/Layout';
+import QueryDashboard from './pages/QueryDashboard';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
+import EvaluationMonitor from './pages/EvaluationMonitor';
+import AdminPanel from './pages/AdminPanel';
+import ComparisonDashboard from './pages/ComparisonDashboard';
+import { ThemeProvider } from './theme';
+import './index.css';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
+
+function App() {
+  return (
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Navigate to="/query" replace />} />
+              <Route path="query" element={<QueryDashboard />} />
+              <Route path="analytics" element={<AnalyticsDashboard />} />
+              <Route path="evaluation" element={<EvaluationMonitor />} />
+              <Route path="admin" element={<AdminPanel />} />
+              <Route path="comparison" element={<ComparisonDashboard />} />
+            </Route>
+          </Routes>
+        </Router>
+      </QueryClientProvider>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+

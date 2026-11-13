@@ -1,0 +1,1 @@
+"""Phase 1: PDF extraction and document structuring."""

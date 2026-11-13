@@ -1,0 +1,68 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Frontend
+node_modules/
+dist/
+build/
+frontend/node_modules/
+frontend/dist/
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+
+# Local databases and vector stores
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.sqlite3
+chroma_db/
+chroma_data/
+chroma_store/
+chroma_storage/
+chroma/
+neo4j/data/
+
+# Uploaded documents and generated data
+uploads/
+uploaded_files/
+data/uploads/
+data/chroma/
+*.log
+
+# Local backups
+*_backup.py
+src_backup_before_fixes/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Backup files
+*.bak
+*.bak2
+
+# ChromaDB persistent storage
+data/
+**/chromadb_verified/
+
+# Generated visualizations
+agents/visualizations/
+
+# Generated analysis
+outlier_analysis/
+
+# Evaluation logs and results
+evals/logs/
+evals/results/
